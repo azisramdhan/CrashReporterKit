@@ -125,6 +125,22 @@ crashReporter.log("This is a test log")
 
 ---
 
+## 📁 File Structure
+
+```
+CrashReporterKit/
+├── Package.swift
+├── Sources/
+│   └── CrashReporterKit/
+│       ├── CrashReporting.swift          # Protocol definition
+│       ├── FirebaseCrashReporter.swift   # Firebase Crashlytics implementation
+│       └── MockCrashReporter.swift       # Mock implementation for testing
+├── Tests/
+│   └── CrashReporterKitTests/
+│       └── CrashReporterKitTests.swift   # Unit tests
+└── README.md
+```
+
 ## 📄 License
 
 This project is licensed under the **MIT License**.
