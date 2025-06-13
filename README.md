@@ -96,16 +96,40 @@ crashReporter.log("This is a test log")
 
 ## 📐 Architecture
 
+```text
+                        +---------------------+
+                        |     App Layer       |
+                        |  (UI, ViewModel)    |
+                        +----------+----------+
+                                   |
+                                   | depends on
+                                   v
+                      +------------+-------------+
+                      |      CrashReporting      | <----- Protocol (Abstraction)
+                      +------------+-------------+
+                                   |
+         +-------------------------+-------------------------+
+         |                                                   |
+         v                                                   v
++--------------------------+                     +--------------------------+
+|  FirebaseCrashReporter   |                     |   MockCrashReporter       |
+|  (Production)            |                     |   (Development/Testing)   |
++--------------------------+                     +--------------------------+
+         |
+         v
++-----------------------------+
+|     Firebase Crashlytics    |
+|     (3rd Party SDK/API)     |
++-----------------------------+
 ```
-App Layer → CrashReporting (Protocol)
-              ├── FirebaseCrashReporter (Production)
-              └── MockCrashReporter (Testing)
-```
-
-This structure allows maximum flexibility and minimal coupling to Firebase.
 
 ---
 
 ## 📄 License
 
-MIT
+This project is licensed under the **MIT License**.
+
+You are free to use, modify, and distribute this library in your commercial or non-commercial projects.
+
+See the [LICENSE](LICENSE) file for more details.
+
